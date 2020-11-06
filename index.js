@@ -8,7 +8,7 @@ app.get("/hi",(req,res)=>{
 
 })
 
-app.get("/movies",(req,res)=>{
+app.get("/knifetype",(req,res)=>{
 //get data from database
 db.executeQuery(`SELECT * FROM KnifesType_T`)
 .then((result)=>{

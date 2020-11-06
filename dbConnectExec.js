@@ -18,7 +18,4 @@ async function executeQuery(aQuery){
 }
 module.exports = {executeQuery: executeQuery}
 
-executeQuery(`SELECT *
-FROM movie
-LEFT JOIN genre
-ON genre.GenrePK = movie.GenreFK`)
+executeQuery(`SELECT * FROM KnifesType_T`)

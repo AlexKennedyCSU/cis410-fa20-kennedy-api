@@ -10,10 +10,7 @@ app.get("/hi",(req,res)=>{
 
 app.get("/movies",(req,res)=>{
 //get data from database
-db.executeQuery(`SELECT *
-FROM movie
-LEFT JOIN genre
-ON genre.GenrePK = movie.GenreFK`)
+db.executeQuery(`SELECT * FROM KnifesType_T`)
 .then((result)=>{
     res.status(200).send(result)
 })

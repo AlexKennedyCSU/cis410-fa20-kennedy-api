@@ -8,7 +8,7 @@ app.get("/hi",(req,res)=>{
 
 })
 
-app.get("/movies",(req,res)=>{
+app.get("/knifetype",(req,res)=>{
 //get data from database
 db.executeQuery(`SELECT * FROM KnifesType_T`)
 .then((result)=>{
@@ -16,6 +16,28 @@ db.executeQuery(`SELECT * FROM KnifesType_T`)
 })
 .catch((err)=>{
     console.log(err)
+    res.status(500).send()
+})
+
+})
+
+app.get("/knifetype/:pk",(req,res)=>{
+var pk = req.params.pk
+
+//console.log("my PK:" , pk)
+var myQuery = `SELECT *
+FROM KnifesType_T
+WHERE TypeID = ${pk}`
+
+db.executeQuery(myQuery).then((movies)=>{
+
+    //console.log("knifes : ", movies)
+
+    if (movies[0]){
+        res.send(movies[0])
+    }else{res.status(404).send('bad request')}
+}).catch((err)=>{
+    console.log("Error in /knifetype/pk", err)
     res.status(500).send()
 })
 
